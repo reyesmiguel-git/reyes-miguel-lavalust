@@ -1,0 +1,33 @@
+REYES LAVALUST - LOCAL TESTING
+
+1. Extract the project into Laragon's www folder.
+   Example:
+   C:\laragon\www\Reyes_Lavalust
+
+2. Start Apache in Laragon.
+
+3. Open Student Home:
+   http://localhost/Reyes_Lavalust/student
+   or, depending on setup:
+   http://localhost/Reyes_Lavalust/public/student
+
+4. IMPORTANT MIDDLEWARE TEST:
+   - Open /student/profile directly by typing it in the address bar.
+   - It must NOT open the profile.
+   - It redirects to /student and shows an "Access Denied" warning.
+
+   The alias /profile is protected the same way.
+
+5. To access the Student Profile:
+   - Go to /student.
+   - Click the "Open Protected Profile" button.
+   - The button grants a one-time access pass.
+   - StudentMiddleware verifies the pass before allowing /student/profile.
+
+6. After the profile loads, the one-time pass is already consumed.
+   - Typing /student/profile directly again or refreshing the protected route will be blocked.
+   - Click "Open Protected Profile" from Home again to access it.
+
+Required laboratory routes remain:
+/student
+/student/profile
