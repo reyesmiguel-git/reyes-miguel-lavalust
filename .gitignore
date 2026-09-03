@@ -24,3 +24,5 @@ runtime/*
 
 # OS
 Thumbs.db
+ca.pem
+.env

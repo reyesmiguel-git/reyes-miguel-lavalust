@@ -58,12 +58,12 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 
 $database['main'] = array(
-    'hostname' => getenv('DB_HOST') ?: 'mysql-3b0eae2-marrygraceivyr.c.aivencloud.com',
-    'username' => getenv('DB_USERNAME') ?: 'avnadmin',
-    'password' => getenv('DB_PASSWORD') ?: 'AVNS_1bbPq4LrqtcJLspC8l9',
-    'database' => getenv('DB_DATABASE') ?: 'mydb',
+    'hostname' => getenv('mysql-37f12d55-reyesmiguel0415-9fd0.k.aivencloud.com'),
+    'username' => getenv('avnadmin'),
+    'password' => getenv('AVNS_nGjTOpWrGUE7BGNicGi'),
+'database' => 'mydb',
     'driver'   => 'mysql',
-    'port'     => getenv('DB_PORT') ?: 13867,
+    'port'     => getenv('17665'),
     'pconnect' => FALSE,
     'db_debug' => TRUE,
     'cache_on' => FALSE,
@@ -71,5 +71,4 @@ $database['main'] = array(
     'char_set' => 'utf8mb4',
     'dbcollat' => 'utf8mb4_general_ci',
 );
-
 ?>
