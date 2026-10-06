@@ -58,7 +58,16 @@ class ApiController extends Controller
             'tokens' => $tokens,
         ]);
     }
+public function debug()
+{
+    header('Content-Type: application/json');
 
+    echo json_encode([
+        'debug' => 'CONTROLLER REACHED'
+    ]);
+
+    exit;
+}
     public function refresh()
     {
         $this->api->require_method('POST');
