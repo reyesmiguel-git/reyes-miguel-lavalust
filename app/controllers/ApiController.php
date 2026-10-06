@@ -13,6 +13,8 @@ class ApiController extends Controller
 
     public function login()
     {
+        error_log('API LOGIN FUNCTION REACHED');
+        
         if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Access-Control-Allow-Origin: https://reyes-miguel-product-frontend.onrender.com');
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
