@@ -2,16 +2,13 @@
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 $database['main'] = array(
-    'hostname' => getenv('DB_HOST'),
-    'username' => getenv('DB_USERNAME'),
-    'password' => getenv('DB_PASSWORD'),
-    'database' => getenv('DB_NAME'),
     'driver'   => 'mysql',
-    'port'     => getenv('DB_PORT'),
-    'pconnect' => FALSE,
-    'db_debug' => TRUE,
-    'cache_on' => FALSE,
-    'cachedir' => '',
-    'char_set' => 'utf8mb4',
-    'dbcollat' => 'utf8mb4_general_ci',
+    'hostname' => getenv('DB_HOST') ?: '127.0.0.1',
+    'username' => getenv('DB_USER') ?: 'root',
+    'password' => getenv('DB_PASSWORD') ?: '',
+    'database' => getenv('DB_NAME') ?: 'lavalust',
+    'port'     => getenv('DB_PORT') ?: 3306,
+    'charset'  => 'utf8mb4',
+    'collate'  => 'utf8mb4_unicode_ci',
+    'dbprefix' => ''
 );

@@ -43,10 +43,50 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 /** @var object $router **/
-
 $router->get('/', 'Welcome::index');
-$router->get('/student', 'StudentController::index');
-$router->get('/student/open-profile', 'StudentController::openProfile');
-$router->get('/student/profile', 'StudentController::profile')->middleware('student');
-$router->get('/profile', 'StudentController::profile')->middleware('student');
-$router->get('/users', 'UsersController::index');
+
+$router->get('/login', 'AuthController::login');
+$router->post('/login', 'AuthController::login');
+$router->get('/logout', 'AuthController::logout');
+
+$router->get('login/products', 'ProductController::index');
+$router->get('login/products/create', 'ProductController::create');
+$router->post('login/products/store', 'ProductController::store');
+$router->get('login/products/edit/{id}', 'ProductController::edit')
+       ->where_number('id');
+$router->post('login/products/update/{id}', 'ProductController::update')
+       ->where_number('id');
+$router->get('login/products/delete/{id}', 'ProductController::delete')
+       ->where_number('id');
+
+// Migration Routes
+$router->get('create-migration/{migration_class}', 'MigrationController::create_migration');
+$router->get('migrate', 'MigrationController::migrate');
+$router->get('rollback', 'MigrationController::rollback');
+$router->get('rollback-all', 'MigrationController::rollback_all');
+$router->get('refresh', 'MigrationController::refresh');
+$router->get('status', 'MigrationController::status');
+
+// API Routes
+$router->post('/api/login', 'ApiController::login');
+$router->post('/api/refresh', 'ApiController::refresh');
+$router->post('/api/logout', 'ApiController::logout');
+$router->get('/api/products', 'ApiController::products');
+$router->post('/api/products', 'ApiController::create_product');
+$router->put('/api/products/{id}', 'ApiController::update_product')->where_number('id');
+$router->patch('/api/products/{id}', 'ApiController::update_product')->where_number('id');
+$router->delete('/api/products/{id}', 'ApiController::delete_product')->where_number('id');
+
+// =====================================================
+// CORS PREFLIGHT ROUTES
+// =====================================================
+$router->options('/api/login', 'ApiController::login');
+$router->options('/api/refresh', 'ApiController::refresh');
+$router->options('/api/logout', 'ApiController::logout');
+
+$router->options('/api/products', 'ApiController::products');
+
+$router->options(
+    '/api/products/{id}',
+    'ApiController::update_product'
+)->where_number('id');

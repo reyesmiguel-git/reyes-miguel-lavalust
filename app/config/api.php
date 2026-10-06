@@ -44,7 +44,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 | and disable it back when you're done.
 |
 */
-$config['api_helper_enabled'] = FALSE;
+$config['api_helper_enabled'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +75,7 @@ $config['refresh_token_expiration'] = 604800;
 | Used for Securing endpoint
 |
 */
-$config['jwt_secret'] = 'cbTsnJDxCodakDxh4M3qd5Sn3Kd2cYCDp4MEu0DAPxx';
+$config['jwt_secret'] = getenv('JWT_SECRET') ?: 'dev-only-jwt-secret-change-this-before-deploy-123456';
 
 /*
 |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ $config['jwt_secret'] = 'cbTsnJDxCodakDxh4M3qd5Sn3Kd2cYCDp4MEu0DAPxx';
 | Used for Securing endpoint
 |
 */
-$config['refresh_token_key'] = '0bNvxjPFJ6dhi1Ttf7AStp95zUcd1iy94mjblklwfPs';
+$config['refresh_token_key'] = getenv('REFRESH_TOKEN_KEY') ?: 'dev-only-refresh-key-change-this-before-deploy-123456';
 
 /*
 |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ $config['refresh_token_key'] = '0bNvxjPFJ6dhi1Ttf7AStp95zUcd1iy94mjblklwfPs';
 | already deployed.
 |
 */
-$config['allow_origin'] = '*';
+$config['allow_origin'] = getenv('FRONTEND_ORIGIN') ?: 'http://localhost:5173';
 
 /*
 |--------------------------------------------------------------------------
@@ -115,7 +115,7 @@ $config['refresh_token_table'] = 'refresh_tokens';
 | These are used for JWT Issuer and Audience claims.
 |
 */
-$config['jwt_issuer'] = 'your-app';
+$config['jwt_issuer'] = getenv('JWT_ISSUER') ?: 'lavalust-product-api';
 
 /*
 |--------------------------------------------------------------------------
@@ -125,7 +125,7 @@ $config['jwt_issuer'] = 'your-app';
 |
 */
 
-$config['jwt_audience'] = 'your-app-clients';
+$config['jwt_audience'] = getenv('JWT_AUDIENCE') ?: 'product-management-frontend';
 
 /*
 |--------------------------------------------------------------------------
