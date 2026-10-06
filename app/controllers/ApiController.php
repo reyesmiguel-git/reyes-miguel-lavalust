@@ -12,19 +12,6 @@ public function __construct()
 }
     public function login()
 {
-    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-        header('Access-Control-Allow-Origin: https://reyes-miguel-product-frontend.onrender.com');
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-        header('Access-Control-Allow-Headers: Content-Type, Authorization');
-        header('Access-Control-Allow-Credentials: true');
-        http_response_code(204);
-        exit;
-    }
-
-    $this->api->respond([
-        'debug' => 'LOGIN FUNCTION REACHED',
-        'method' => $_SERVER['REQUEST_METHOD']
-    ]);
         $this->api->require_method('POST');
         $input = $this->api->body();
 
@@ -57,16 +44,7 @@ public function __construct()
             'tokens' => $tokens,
         ]);
     }
-public function debug()
-{
-    header('Content-Type: application/json');
 
-    echo json_encode([
-        'debug' => 'CONTROLLER REACHED'
-    ]);
-
-    exit;
-}
     public function refresh()
     {
         $this->api->require_method('POST');
