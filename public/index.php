@@ -1,5 +1,15 @@
 <?php
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === '/api/login') {
+    header('Content-Type: application/json');
+    echo json_encode([
+        'debug' => 'PUBLIC INDEX REACHED',
+        'uri' => $_SERVER['REQUEST_URI'],
+        'method' => $_SERVER['REQUEST_METHOD']
+    ]);
+    exit;
+}
+
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
 if ($origin === 'https://reyes-miguel-product-frontend.onrender.com') {
