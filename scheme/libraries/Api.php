@@ -204,7 +204,7 @@ class Api
             show_error('jwt_secret and refresh_token_key must be different values.');
         }
 
-        handle_cors();
+        //handle_cors();
     }
 
     /**

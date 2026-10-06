@@ -6,6 +6,9 @@ class ApiController extends Controller
 public function __construct()
 {
     parent::__construct();
+    $this->call->library('api');
+    $this->call->model('ProductModel');
+    $this->call->model('UsersModel');
 }
     public function login()
 {
