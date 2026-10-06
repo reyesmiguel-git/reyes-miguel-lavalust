@@ -3,14 +3,11 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class ApiController extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->call->library('api');
-        $this->call->model('ProductModel');
-        $this->call->model('UsersModel');
-    }
-
+public function __construct()
+{
+    parent::__construct();
+    $this->call->library('api');
+}
     public function login()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
