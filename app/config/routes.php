@@ -68,7 +68,13 @@ $router->get('refresh', 'MigrationController::refresh');
 $router->get('status', 'MigrationController::status');
 
 // API Routes
-$router->post('/api/login', 'ApiController::login');
+$router->post('/api/login', function () {
+    header('Content-Type: application/json');
+    echo json_encode([
+        'debug' => 'ROUTE REACHED'
+    ]);
+    exit;
+});
 $router->post('/api/refresh', 'ApiController::refresh');
 $router->post('/api/logout', 'ApiController::logout');
 $router->get('/api/products', 'ApiController::products');
